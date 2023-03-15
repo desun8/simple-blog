@@ -1,13 +1,13 @@
-import vue from "@vitejs/plugin-vue"
-import { PluginOption } from "vite";
-import { optimizeCssModules } from 'vite-plugin-optimize-css-modules';
+import vue from '@vitejs/plugin-vue';
+import {type PluginOption} from 'vite';
+import {optimizeCssModules} from 'vite-plugin-optimize-css-modules';
 
 export const buildPlugins = (isDev: boolean): PluginOption[] => {
-  const plugins = [vue()]
+  const plugins = [vue()];
 
   if (isDev) {
-    plugins.push(optimizeCssModules())
+    plugins.push(optimizeCssModules());
   }
 
-  return plugins
-}
+  return plugins;
+};
