@@ -23,6 +23,10 @@ module.exports = {
 
 			rules: {
 				'@typescript-eslint/indent': 'off',
+				'@typescript-eslint/naming-convention': ['error', {
+					selector: 'variable',
+					format: ['camelCase', 'UPPER_CASE', 'StrictPascalCase'],
+				}],
 			},
 		},
 	],
@@ -34,5 +38,6 @@ module.exports = {
 		'vue',
 	],
 	rules: {
+		'capitalized-comments': 'off',
 	},
 };
