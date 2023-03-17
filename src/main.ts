@@ -1,5 +1,7 @@
+import {router} from '1_app/providers/router';
 import {createApp} from 'vue';
-import App from './App.vue';
+import App from './1_app/App.vue';
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-createApp(App).mount('#app');
+createApp(App)
+  .use(router)
+  .mount('#app');
