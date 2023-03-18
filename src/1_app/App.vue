@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import {RoutePath} from '6_shared/config/routes/routes';
-import {useTheme} from './providers/theme';
+import { RoutePath } from '6_shared/config/routes/routes';
+import { useTheme } from './providers/theme';
 
-const {theme} = useTheme();
+const { theme } = useTheme();
 </script>
 
 <template>
@@ -13,7 +13,7 @@ const {theme} = useTheme();
     </nav>
 
     <h1>Hello world!</h1>
-    <RouterView/>
+    <RouterView />
   </div>
 </template>
 
