@@ -1,0 +1,25 @@
+@import url(normalize.css);
+@import url(reset.css);
+@import url(variables/global.css);
+@import url(themes/light.css);
+@import url(themes/dark.css);
+
+
+body {
+  font: var(--font-m);
+}
+
+.app {
+  min-height: 100vh;
+  color: var(--primary-color);
+  background-color: var(--bg-color);
+}
+
+.content-page {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+
+.page-wrapper {
+  padding: 20px;
+}

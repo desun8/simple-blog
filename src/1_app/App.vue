@@ -1,9 +1,12 @@
 <script setup lang="ts">
 import {RoutePath} from '6_shared/config/routes/routes';
+import {useTheme} from './providers/theme';
+
+const {theme} = useTheme();
 </script>
 
 <template>
-  <div>
+  <div :class="`app ${theme}`">
     <nav>
       <RouterLink :to="RoutePath.main">Home</RouterLink>
       <RouterLink :to="RoutePath.about">About</RouterLink>
