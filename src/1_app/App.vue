@@ -10,8 +10,10 @@ const { theme } = useTheme();
   <div :class="`app ${theme}`">
     <TheNavbar />
 
-    <h1>Hello world!</h1>
-    <RouterView />
+    <div class="content-page">
+      <TheSidebar />
+      <RouterView class="page-wrapper" />
+    </div>
   </div>
 </template>
 
