@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { RoutePath } from '6_shared/config/routes/routes';
+import { TheNavbar } from '3_widgets/TheNavbar';
+import { TheSidebar } from '3_widgets/TheSidebar';
 import { useTheme } from './providers/theme';
 
 const { theme } = useTheme();
@@ -7,10 +8,7 @@ const { theme } = useTheme();
 
 <template>
   <div :class="`app ${theme}`">
-    <nav>
-      <RouterLink :to="RoutePath.main">Home</RouterLink>
-      <RouterLink :to="RoutePath.about">About</RouterLink>
-    </nav>
+    <TheNavbar />
 
     <h1>Hello world!</h1>
     <RouterView />
