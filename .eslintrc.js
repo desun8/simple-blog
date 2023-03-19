@@ -16,6 +16,8 @@ module.exports = {
       rules: {
         '@typescript-eslint/indent': 'off',
         '@typescript-eslint/object-curly-spacing': 'off',
+        '@typescript-eslint/comma-dangle': 'off',
+        '@typescript-eslint/triple-slash-reference': 'off',
         '@typescript-eslint/naming-convention': [
           'error',
           {

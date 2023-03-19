@@ -17,9 +17,15 @@
     "noEmit": true,
     "baseUrl": ".",
     "paths": {
-      "*": ["./src/*"]
+      "*": [
+        "./src/*"
+      ]
     },
-    "allowJs": true
+    "allowJs": true,
+    "types": [
+      "unplugin-vue-macros/macros-global",
+      "unplugin-vue-define-options/macros-global"
+    ]
   },
   "include": [
     "src/**/*.ts",
@@ -31,5 +37,16 @@
     {
       "path": "./tsconfig.node.json"
     }
-  ]
+  ],
+  "vueCompilerOptions": {
+    "plugins": [
+      "@vue-macros/volar/define-options",
+      // "@vue-macros/volar/define-model",
+      "@vue-macros/volar/define-props"
+      // "@vue-macros/volar/define-props-refs",
+      // "@vue-macros/volar/short-vmodel",
+      // "@vue-macros/volar/define-slots",
+      // "@vue-macros/volar/export-props"
+    ]
+  }
 }
