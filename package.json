@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/epchela/simple-blog#readme",
   "devDependencies": {
+    "@intlify/eslint-plugin-vue-i18n": "^2.0.0",
+    "@intlify/unplugin-vue-i18n": "^0.9.2",
     "@types/node": "^18.15.0",
     "@typescript-eslint/eslint-plugin": "^5.55.0",
     "@typescript-eslint/parser": "^5.55.0",
@@ -44,6 +46,7 @@
   },
   "dependencies": {
     "vue": "^3.2.47",
+    "vue-i18n": "^9.2.2",
     "vue-router": "^4.1.6"
   }
 }

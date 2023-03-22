@@ -8,6 +8,7 @@ import { AppLinkTheme } from '6_shared/ui/AppLink/types/AppLinkTheme';
 import { ref } from 'vue';
 import IconNavMain from '../../assets/i-nav-main.svg?component';
 import IconNavAbout from '../../assets/i-nav-about.svg?component';
+import { LangSwitcher } from '4_features/LangSwitcher';
 
 const collapsed = ref(false);
 const onToggle = () => {
@@ -23,8 +24,11 @@ const onToggle = () => {
       :size="AppButtonSize.L"
       square
       @click="onToggle"
-      >{{ collapsed ? '>' : '<' }}</AppButton
     >
+      <!-- eslint-disable-next-line @intlify/vue-i18n/no-raw-text -->
+      {{ collapsed ? '>' : '<' }}
+    </AppButton>
+
     <nav :class="cls.nav">
       <AppLink
         :class="cls.link"
@@ -32,7 +36,7 @@ const onToggle = () => {
         :to="RoutePath.main"
       >
         <IconNavMain />
-        <span :class="cls.linkLabel">Home</span>
+        <span :class="cls.linkLabel">{{ $t('common.glavnaya') }}</span>
       </AppLink>
 
       <AppLink
@@ -41,9 +45,13 @@ const onToggle = () => {
         :to="RoutePath.about"
       >
         <IconNavAbout />
-        <span :class="cls.linkLabel">About</span>
+        <span :class="cls.linkLabel">{{ $t('common.o_nas') }}</span>
       </AppLink>
     </nav>
+
+    <div :class="cls.switchers">
+      <LangSwitcher :short="collapsed" />
+    </div>
   </aside>
 </template>
 

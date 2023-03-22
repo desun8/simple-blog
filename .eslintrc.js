@@ -4,7 +4,12 @@ module.exports = {
     es2021: true,
     node: true,
   },
-  extends: ['plugin:vue/vue3-essential', 'xo', 'prettier'],
+  extends: [
+    'plugin:vue/vue3-essential',
+    'xo',
+    'prettier',
+    'plugin:@intlify/vue-i18n/recommended',
+  ],
   overrides: [
     {
       extends: ['xo-typescript'],
@@ -38,5 +43,13 @@ module.exports = {
     'prettier/prettier': 'error',
     'capitalized-comments': 'off',
     'no-unused-vars': 'off',
+    '@intlify/vue-i18n/no-dynamic-keys': 'error',
+    '@intlify/vue-i18n/no-raw-text': 'error',
+    '@intlify/vue-i18n/no-unused-keys': [
+      'error',
+      {
+        extensions: ['.js', '.vue'],
+      },
+    ],
   },
 };

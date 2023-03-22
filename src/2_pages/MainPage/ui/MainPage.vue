@@ -2,7 +2,7 @@
 
 <template>
   <div>
-    <h1>Home page</h1>
+    <h1>{{ $t('common.message') }}</h1>
   </div>
 </template>
 

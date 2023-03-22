@@ -21,14 +21,12 @@ const handleClick = () => {
 
   isAuth.value = !isAuth.value;
 };
-
-const btnLabel = computed(() => (isAuth.value ? 'logout' : 'login'));
 </script>
 
 <template>
   <div :class="cls.TheNavbar">
     <AppButton :class="cls.links" @click="handleClick">
-      {{ btnLabel }}
+      {{ isAuth ? $t('common.logout') : $t('common.login') }}
     </AppButton>
   </div>
 </template>

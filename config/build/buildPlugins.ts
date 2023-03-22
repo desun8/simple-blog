@@ -5,6 +5,7 @@ import tsconfigPath from 'vite-tsconfig-paths';
 import vueMacros from 'unplugin-vue-macros/vite';
 import defineOptions from 'unplugin-vue-define-options/vite';
 import svgLoader from 'vite-svg-loader';
+import i18nPlugin from '@intlify/unplugin-vue-i18n/vite';
 
 export const buildPlugins = (isDev: boolean): PluginOption[] => {
   const plugins = [
@@ -16,6 +17,7 @@ export const buildPlugins = (isDev: boolean): PluginOption[] => {
     }),
     defineOptions(),
     svgLoader(),
+    i18nPlugin({}),
   ];
 
   if (isDev) {

@@ -1,4 +1,5 @@
 /// <reference types="vite-svg-loader" />
+/// <reference types="vite/client" />
 
 declare module '*.vue' {
   import Vue from 'vue';
