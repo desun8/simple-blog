@@ -1,9 +1,10 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { defineAsyncComponent } from 'vue';
+const PageContent = defineAsyncComponent(() => import('./PageContent.vue'));
+</script>
 
 <template>
-  <div>
-    <h1>{{ $t('about.message') }}</h1>
-  </div>
+  <PageContent />
 </template>
 
 <style module="cls"></style>

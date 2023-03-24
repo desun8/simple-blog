@@ -1,14 +1,7 @@
 import { type RouteRecordRaw } from 'vue-router';
 
-const MainPage = async () => {
-  const { MainPage } = await import('2_pages/MainPage');
-  return MainPage;
-};
-
-const AboutPage = async () => {
-  const { AboutPage } = await import('2_pages/AboutPage');
-  return AboutPage;
-};
+const MainPage = async () => import('2_pages/MainPage');
+const AboutPage = async () => import('2_pages/AboutPage');
 
 export const enum AppRoutes {
   MAIN = 'main',
@@ -23,6 +16,12 @@ export const RoutePath: Record<AppRoutes, string> = {
 };
 
 export const routes: RouteRecordRaw[] = [
-  { path: RoutePath.main, component: MainPage },
-  { path: RoutePath.about, component: AboutPage },
+  {
+    path: RoutePath.main,
+    component: MainPage,
+  },
+  {
+    path: RoutePath.about,
+    component: AboutPage,
+  },
 ];

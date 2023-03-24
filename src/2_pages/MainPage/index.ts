@@ -1,3 +1,3 @@
 import MainPage from './ui/MainPage.vue';
 
-export { MainPage };
+export default MainPage;
