@@ -16,7 +16,21 @@ export const buildPlugins = (isDev: boolean): PluginOption[] => {
       },
     }),
     defineOptions(),
-    svgLoader(),
+    svgLoader({
+      svgoConfig: {
+        multipass: true,
+        plugins: [
+          {
+            name: 'preset-default',
+            params: {
+              overrides: {
+                cleanupIds: false,
+              },
+            },
+          },
+        ],
+      },
+    }),
     i18nPlugin({}),
   ];
 
