@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import AppButton from '6_shared/ui/AppButton/AppButton.vue';
-import { computed, ref } from 'vue';
+import { AppButtonTheme } from '6_shared/ui/AppButton/types/AppButtonTheme';
+import { ref } from 'vue';
 
 const isAuth = ref(false);
 
@@ -25,7 +26,11 @@ const handleClick = () => {
 
 <template>
   <div :class="cls.TheNavbar">
-    <AppButton :class="cls.links" @click="handleClick">
+    <AppButton
+      :class="cls.links"
+      :theme="AppButtonTheme.CLEAR"
+      @click="handleClick"
+    >
       {{ isAuth ? $t('common.logout') : $t('common.login') }}
     </AppButton>
   </div>

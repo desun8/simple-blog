@@ -5,7 +5,7 @@ import { AppButtonSize } from '6_shared/ui/AppButton/types/AppButtonSize';
 import { AppButtonTheme } from '6_shared/ui/AppButton/types/AppButtonTheme';
 import AppLink from '6_shared/ui/AppLink/AppLink.vue';
 import { AppLinkTheme } from '6_shared/ui/AppLink/types/AppLinkTheme';
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import IconNavMain from '../../assets/i-nav-main.svg?component';
 import IconNavAbout from '../../assets/i-nav-about.svg?component';
 import { LangSwitcher } from '4_features/LangSwitcher';
@@ -15,6 +15,8 @@ const collapsed = ref(false);
 const onToggle = () => {
   collapsed.value = !collapsed.value;
 };
+
+const labelCollapsedBtn = computed(() => (collapsed.value ? '>' : '<'));
 </script>
 
 <template>
@@ -26,8 +28,7 @@ const onToggle = () => {
       square
       @click="onToggle"
     >
-      <!-- eslint-disable-next-line @intlify/vue-i18n/no-raw-text -->
-      {{ collapsed ? '>' : '<' }}
+      {{ labelCollapsedBtn }}
     </AppButton>
 
     <nav :class="cls.nav">
