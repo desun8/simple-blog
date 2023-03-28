@@ -9,6 +9,7 @@ import { ref } from 'vue';
 import IconNavMain from '../../assets/i-nav-main.svg?component';
 import IconNavAbout from '../../assets/i-nav-about.svg?component';
 import { LangSwitcher } from '4_features/LangSwitcher';
+import { ThemeSwitcher } from '4_features/ThemeSwitcher';
 
 const collapsed = ref(false);
 const onToggle = () => {
@@ -50,6 +51,7 @@ const onToggle = () => {
     </nav>
 
     <div :class="cls.switchers">
+      <ThemeSwitcher />
       <LangSwitcher :short="collapsed" />
     </div>
   </aside>
