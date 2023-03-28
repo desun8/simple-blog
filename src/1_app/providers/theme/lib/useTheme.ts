@@ -1,27 +1,22 @@
-import { type Ref, ref } from 'vue';
-
-export const LOCAL_STORAGE_THEME_KEY = 'theme';
-
-export const enum Theme {
-  LIGHT = 'app-theme-light',
-  DARK = 'app-theme-dark',
-}
+import { type Ref, ref, inject } from 'vue';
+import { Theme, PROVIDE_THEME_KEY } from './themeProvider';
 
 type UseThemeResult = {
   toggleTheme: () => void;
   theme: Ref<Theme>;
 };
 
-const defaultTheme =
-  (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) || Theme.LIGHT;
-
 export const useTheme = (): UseThemeResult => {
-  const theme = ref<Theme>(defaultTheme);
+  const { theme, setTheme } = inject(PROVIDE_THEME_KEY, {
+    theme: ref(Theme.LIGHT),
+    setTheme(a: Theme) {
+      console.warn('Problem with injected PROVIDE_THEME_KEY');
+    },
+  });
 
   const toggleTheme = () => {
     const newTheme = theme.value === Theme.DARK ? Theme.LIGHT : Theme.DARK;
-    theme.value = newTheme;
-    localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
+    setTheme(newTheme);
   };
 
   return {
