@@ -61,9 +61,12 @@ const labelCollapsedBtn = computed(() => (collapsed.value ? '>' : '<'));
 <style module="cls">
 .TheSidebar {
   position: relative;
+
   width: var(--sidebar-width);
   height: calc(100vh - var(--navbar-height));
+
   background-color: var(--inverted-bg-color);
+
   transition: width 0.3s;
 }
 
@@ -78,6 +81,7 @@ const labelCollapsedBtn = computed(() => (collapsed.value ? '>' : '<'));
   justify-content: center;
   align-items: center;
   gap: 20px;
+
   width: 100%;
 }
 
@@ -94,6 +98,7 @@ const labelCollapsedBtn = computed(() => (collapsed.value ? '>' : '<'));
 .nav {
   display: grid;
   gap: 10px;
+
   padding: 30px;
 }
 
@@ -106,12 +111,14 @@ const labelCollapsedBtn = computed(() => (collapsed.value ? '>' : '<'));
 }
 
 .linkLabel {
-  transition: all 0.2s;
   white-space: nowrap;
+
+  transition: all 0.2s;
 }
 
 .collapsed .linkLabel {
   width: 0;
+
   opacity: 0;
 }
 </style>

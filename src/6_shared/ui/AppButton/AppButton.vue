@@ -38,16 +38,19 @@ const { theme, square, size, type, disabled, ...otherProps } = useProps(props);
 <style module="cls">
 .AppButton {
   padding: 6px 12px;
+
   color: var(--primary-color);
+
   cursor: pointer;
 }
 
 .clear,
 .clearInverted {
-  padding: 0;
   margin: 0;
-  background-color: transparent;
+  padding: 0;
   border: 0;
+
+  background-color: transparent;
 }
 
 .clearInverted {
@@ -63,21 +66,24 @@ const { theme, square, size, type, disabled, ...otherProps } = useProps(props);
 }
 
 .outline {
-  color: var(--primary-color);
-  background: none;
   border: 1px solid var(--primary-color);
+
+  background: none;
+  color: var(--primary-color);
 }
 
 .background {
+  border: 0;
+
   background-color: var(--bg-color);
   color: var(--primary-color);
-  border: 0;
 }
 
 .backgroundInverted {
+  border: 0;
+
   background-color: var(--inverted-bg-color);
   color: var(--inverted-primary-color);
-  border: 0;
 }
 
 .square {
@@ -87,18 +93,21 @@ const { theme, square, size, type, disabled, ...otherProps } = useProps(props);
 .square.size-m {
   width: var(--font-line-m);
   height: var(--font-line-m);
+
   font-size: var(--font-size-m);
 }
 
 .square.size-l {
   width: var(--font-line-l);
   height: var(--font-line-l);
+
   font-size: var(--font-size-l);
 }
 
 .square.size-xl {
   width: var(--font-line-xl);
   height: var(--font-line-xl);
+
   font-size: var(--font-size-xl);
 }
 

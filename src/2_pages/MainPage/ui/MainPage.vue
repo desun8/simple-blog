@@ -6,5 +6,3 @@ const PageContent = defineAsyncComponent(() => import('./PageContent.vue'));
 <template>
   <PageContent />
 </template>
-
-<style module="cls"></style>

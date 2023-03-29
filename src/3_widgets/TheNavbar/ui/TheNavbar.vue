@@ -41,9 +41,11 @@ const handleClick = () => {
   display: flex;
   justify-content: center;
   align-items: center;
+
   width: 100%;
   height: var(--navbar-height);
   padding: 20px;
+
   background-color: var(--inverted-bg-color);
 }
 
@@ -51,6 +53,7 @@ const handleClick = () => {
   display: grid;
   grid-auto-flow: column;
   gap: 16px;
+
   margin-left: auto;
 }
 </style>

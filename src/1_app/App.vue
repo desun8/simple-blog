@@ -33,6 +33,6 @@ const { theme } = useTheme();
 
 <style module="cls">
 .red {
-  color: rgb(215, 20, 20);
+  color: rgb(215 20 20);
 }
 </style>

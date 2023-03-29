@@ -5,5 +5,3 @@
     <h1>{{ $t('common.message') }}</h1>
   </div>
 </template>
-
-<style module="cls"></style>
