@@ -17,6 +17,9 @@
     "noEmit": true,
     "baseUrl": ".",
     "paths": {
+      "config/*": [
+        "./config/*"
+      ],
       "*": [
         "./src/*"
       ]
@@ -24,7 +27,8 @@
     "allowJs": true,
     "types": [
       "unplugin-vue-macros/macros-global",
-      "unplugin-vue-define-options/macros-global"
+      "unplugin-vue-define-options/macros-global",
+      "vitest/globals"
     ]
   },
   "include": [

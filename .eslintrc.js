@@ -32,6 +32,13 @@ module.exports = {
         ],
       },
     },
+    {
+      files: ['*.test.ts'],
+      rules: {
+        '@typescript-eslint/ban-ts-comment': 'off',
+        '@typescript-eslint/prefer-ts-expect-error': 'off',
+      },
+    },
   ],
   parserOptions: {
     parser: '@typescript-eslint/parser',
