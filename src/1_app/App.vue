@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { PageLoader } from '3_widgets/PageLoader';
 import { TheNavbar } from '3_widgets/TheNavbar';
 import { TheSidebar } from '3_widgets/TheSidebar';
 import { useTheme } from './providers/theme';
@@ -20,7 +21,7 @@ const { theme } = useTheme();
                 <component :is="Component"></component>
 
                 <template #fallback>
-                  {{ $t('common.loading') }}
+                  <PageLoader />
                 </template>
               </Suspense>
             </KeepAlive>
