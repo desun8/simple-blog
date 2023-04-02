@@ -7,5 +7,7 @@
   "yazyk": "English",
   "yazyk_korotkii": "En",
   "loading": "Loading...",
-  "stranica_ne_naidena": "Page not found"
+  "stranica_ne_naidena": "Page not found",
+  "obnovit_stranicu": "Refresh the page",
+  "proizoshla_nepredvidennaya_oshibka": "An unexpected error has occurred"
 }

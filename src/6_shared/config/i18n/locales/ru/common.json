@@ -7,5 +7,7 @@
   "yazyk_korotkii": "Ру",
   "yazyk": "Русский",
   "loading": "Загружается...",
-  "stranica_ne_naidena": "Страница не найдена"
+  "stranica_ne_naidena": "Страница не найдена",
+  "proizoshla_nepredvidennaya_oshibka": "Произошла непредвиденная ошибка",
+  "obnovit_stranicu": "Обновить страницу"
 }
