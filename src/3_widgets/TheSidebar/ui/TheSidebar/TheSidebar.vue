@@ -20,12 +20,16 @@ const labelCollapsedBtn = computed(() => (collapsed.value ? '>' : '<'));
 </script>
 
 <template>
-  <aside :class="[cls.TheSidebar, { [cls.collapsed]: collapsed }]">
+  <aside
+    :class="[cls.TheSidebar, { [cls.collapsed]: collapsed }]"
+    data-testid="the-sidebar"
+  >
     <AppButton
       :class="cls.collapseBtn"
       :theme="AppButtonTheme.BACKGROUND_INVERTED"
       :size="AppButtonSize.L"
       square
+      data-testid="the-sidebar-toggle"
       @click="onToggle"
     >
       {{ labelCollapsedBtn }}
