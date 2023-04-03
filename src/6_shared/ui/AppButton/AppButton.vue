@@ -1,34 +1,35 @@
 <script setup lang="ts">
-import { useProps } from '6_shared/lib/useProps/useProps';
-import { $defineProps } from '@vue-macros/define-props/macros';
-import { type ButtonHTMLAttributes } from 'vue';
+import { type ButtonHTMLAttributes, toRefs } from 'vue';
 import { AppButtonSize } from './types/AppButtonSize';
 import { AppButtonTheme } from './types/AppButtonTheme';
 
-type Props = {
+interface Props extends ButtonHTMLAttributes {
   theme?: AppButtonTheme;
   square?: boolean;
   size?: AppButtonSize;
-  disabled?: boolean;
-} & ButtonHTMLAttributes;
+}
 
-const props = withDefaults($defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   size: AppButtonSize.M,
   type: 'button',
 });
-const { theme, square, size, type, disabled, ...otherProps } = useProps(props);
+
+const {
+  size = AppButtonSize.M,
+  type = 'button',
+  theme,
+  square,
+} = toRefs(props);
 </script>
 
 <template>
   <button
-    v-bind="otherProps"
     :class="[
       cls.AppButton,
       cls[theme || ''],
       cls[size],
       { [cls.square]: square },
     ]"
-    :disabled="disabled"
     :type="type"
   >
     <slot></slot>

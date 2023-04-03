@@ -1,21 +1,20 @@
 <script setup lang="ts">
-import { useProps } from '6_shared/lib/useProps/useProps';
-import { $defineProps } from '@vue-macros/define-props/macros';
 import { RouterLink, type RouterLinkProps } from 'vue-router';
 import { AppLinkTheme } from './types/AppLinkTheme';
+import { toRefs } from 'vue';
 
-type AppLinkProps = {
+interface AppLinkProps extends RouterLinkProps {
   theme?: AppLinkTheme;
-} & RouterLinkProps;
+}
 
-const props = withDefaults($defineProps<AppLinkProps>(), {
+const props = withDefaults(defineProps<AppLinkProps>(), {
   theme: AppLinkTheme.PRIMARY,
 });
-const { theme, to, ...otherProps } = useProps(props);
+const { theme, to } = toRefs(props);
 </script>
 
 <template>
-  <RouterLink v-bind="otherProps" :class="[cls.AppLink, cls[theme]]" :to="to"
+  <RouterLink :class="[cls.AppLink, cls[theme]]" :to="to"
     ><slot></slot
   ></RouterLink>
 </template>

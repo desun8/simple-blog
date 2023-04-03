@@ -6,13 +6,12 @@ import {
 } from '6_shared/config/i18n/i18n';
 import AppButton from '6_shared/ui/AppButton/AppButton.vue';
 import { AppButtonTheme } from '6_shared/ui/AppButton/types/AppButtonTheme';
-import { $defineProps } from '@vue-macros/define-props/macros';
 import { useI18n } from 'vue-i18n';
 
 type LangSwitcherProps = {
   short?: boolean;
 };
-const props = withDefaults($defineProps<LangSwitcherProps>(), {
+const props = withDefaults(defineProps<LangSwitcherProps>(), {
   short: false,
 });
 
