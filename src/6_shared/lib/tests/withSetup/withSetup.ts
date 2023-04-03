@@ -1,17 +1,17 @@
-/* eslint-disable @typescript-eslint/no-empty-function */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unsafe-return */
 import type Vue from 'vue';
 import { createApp } from 'vue';
 
-export function withSetup(composable, plugins: Vue.Plugin[] = []) {
-  let result;
+export function withSetup<T>(
+  composable: () => T,
+  plugins: Vue.Plugin[] = []
+): [T, Vue.App] {
+  let result!: T;
+
   const app = createApp({
     setup() {
       result = composable();
       // suppress missing template warning
-      return () => {};
+      return () => undefined;
     },
   });
 

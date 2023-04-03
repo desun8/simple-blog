@@ -1,7 +1,7 @@
 import { type Ref, ref, inject } from 'vue';
 import { Theme, PROVIDE_THEME_KEY } from './themeProvider';
 
-type UseThemeResult = {
+export type UseThemeResult = {
   toggleTheme: () => void;
   theme: Ref<Theme>;
 };
