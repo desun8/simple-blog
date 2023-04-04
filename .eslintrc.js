@@ -14,7 +14,7 @@ module.exports = {
     {
       extends: ['xo-typescript'],
       parserOptions: {
-        project: ['tsconfig.json', 'tsconfig.node.json'],
+        project: ['tsconfig.json'],
       },
       files: ['*.ts', '*.tsx'],
 
