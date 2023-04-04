@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import LoaderSpinner from '6_shared/ui/LoaderSpinner.vue';
+import LoaderSpinner from '6_shared/ui/LoaderSpinner/LoaderSpinner.vue';
 </script>
 
 <template>

@@ -124,7 +124,8 @@ const {
   font-size: var(--font-size-xl);
 }
 
-.disabled {
+.AppButton:disabled {
   opacity: 0.5;
+  cursor: not-allowed;
 }
 </style>

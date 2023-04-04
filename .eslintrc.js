@@ -9,6 +9,7 @@ module.exports = {
     'xo',
     'prettier',
     'plugin:@intlify/vue-i18n/recommended',
+    'plugin:storybook/recommended',
   ],
   overrides: [
     {
@@ -17,7 +18,6 @@ module.exports = {
         project: ['tsconfig.json'],
       },
       files: ['*.ts', '*.tsx'],
-
       rules: {
         '@typescript-eslint/indent': 'off',
         '@typescript-eslint/object-curly-spacing': 'off',
@@ -37,6 +37,14 @@ module.exports = {
       rules: {
         '@typescript-eslint/ban-ts-comment': 'off',
         '@typescript-eslint/prefer-ts-expect-error': 'off',
+      },
+    },
+    {
+      files: ['*.stories.ts'],
+      rules: {
+        '@typescript-eslint/ban-ts-comment': 'off',
+        '@typescript-eslint/prefer-ts-expect-error': 'off',
+        'new-cap': 'off',
       },
     },
   ],

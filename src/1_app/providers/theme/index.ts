@@ -1,2 +1,4 @@
-export { useTheme } from './lib/useTheme';
-export { themeProvider } from './lib/themeProvider';
+import { useTheme } from './lib/useTheme';
+import { themeProvider, Theme } from './lib/themeProvider';
+
+export { useTheme, themeProvider, Theme };

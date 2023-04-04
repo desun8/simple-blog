@@ -7,6 +7,8 @@
 <style module="cls">
 .LoaderSpinner {
   position: relative;
+
+  display: block;
   overflow: hidden;
 
   width: 1em;
