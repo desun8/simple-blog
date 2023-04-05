@@ -13,10 +13,11 @@ const getConfig = (): CustomProjectConfig => {
     };
   }
 
-  // @ts-expect-error: For ci it's ok
   return {
-    lostPixelProjectId: 'clg26im9304bdie0e6w3whyxe',
-    apiKey: process.env.LOST_PIXEL_API_KEY,
+    // lostPixelProjectId: 'clg26im9304bdie0e6w3whyxe',
+    // apiKey: process.env.LOST_PIXEL_API_KEY,
+    generateOnly: true,
+    // failOnDifference: true,
     storybookShots,
   };
 };
