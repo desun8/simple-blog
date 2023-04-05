@@ -38,6 +38,7 @@
     "src/**/*.vue",
     "vite.config.ts",
     "config/**/*.ts",
+    "./lostpixel.config.ts"
   ],
   "vueCompilerOptions": {
     "plugins": []

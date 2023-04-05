@@ -13,8 +13,13 @@
     "lint:css": "stylelint \"src/**/*.{css,vue}\"",
     "lint:css:fix": "stylelint \"src/**/*.{css,vue}\" --fix",
     "test:unit": "vitest run --config ./config/vitest/vitest.config.ts",
+    "test:ui": "lost-pixel",
+    "test:ui:ok": "lost-pixel update",
+    "test:ui:report": "npm run test:ui:json && npm run test:ui:html",
+    "test:ui:json": "node scripts/generate-visual-json-report.js",
+    "test:ui:html": "reg-cli --from .lostpixel/report.json --report .lostpixel/report.html",
     "storybook": "storybook dev --no-open -p 6006 -c ./config/storybook",
-    "build-storybook": "storybook build -c ./config/storybook"
+    "storybook:build": "storybook build -c ./config/storybook"
   },
   "repository": {
     "type": "git",
@@ -51,11 +56,13 @@
     "eslint-plugin-vue": "^9.9.0",
     "happy-dom": "^8.9.0",
     "i": "^0.3.7",
+    "lost-pixel": "^3.2.0",
     "npm": "^9.6.3",
     "postcss-html": "^1.5.0",
     "prettier": "^2.8.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "reg-cli": "^0.17.7",
     "rollup-plugin-visualizer": "^5.9.0",
     "storybook": "^7.0.2",
     "storybook-vue3-router": "^3.0.0-next.3",
