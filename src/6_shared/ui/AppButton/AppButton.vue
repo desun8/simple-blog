@@ -88,7 +88,7 @@ const {
 }
 
 .square {
-  padding: 20px;
+  padding: 0;
 }
 
 .square.size-m {
