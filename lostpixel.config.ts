@@ -7,4 +7,7 @@ export const config: CustomProjectConfig = {
 
   generateOnly: true,
   failOnDifference: true,
+
+  lostPixelProjectId: 'clg26im9304bdie0e6w3whyxe',
+  apiKey: process.env.LOST_PIXEL_API_KEY,
 };
