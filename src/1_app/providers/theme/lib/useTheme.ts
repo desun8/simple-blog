@@ -6,7 +6,7 @@ export type UseThemeResult = {
   theme: Ref<Theme>;
 };
 
-export const useTheme = (): UseThemeResult => {
+export const useTheme = (initialTheme?: Theme): UseThemeResult => {
   const { theme, setTheme } = inject(PROVIDE_THEME_KEY, {
     theme: ref(Theme.LIGHT),
     setTheme(a: Theme) {
@@ -18,6 +18,10 @@ export const useTheme = (): UseThemeResult => {
     const newTheme = theme.value === Theme.DARK ? Theme.LIGHT : Theme.DARK;
     setTheme(newTheme);
   };
+
+  if (initialTheme) {
+    setTheme(initialTheme);
+  }
 
   return {
     toggleTheme,
