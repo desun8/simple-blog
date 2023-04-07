@@ -9,5 +9,8 @@
   "loading": "Загружается...",
   "stranica_ne_naidena": "Страница не найдена",
   "proizoshla_nepredvidennaya_oshibka": "Произошла непредвиденная ошибка",
-  "obnovit_stranicu": "Обновить страницу"
+  "obnovit_stranicu": "Обновить страницу",
+  "vvedite_login": "Введите логин",
+  "vvedite_parol": "Введите пароль",
+  "voiti": "Войти"
 }

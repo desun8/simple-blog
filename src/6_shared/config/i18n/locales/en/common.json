@@ -9,5 +9,8 @@
   "loading": "Loading...",
   "stranica_ne_naidena": "Page not found",
   "obnovit_stranicu": "Refresh the page",
-  "proizoshla_nepredvidennaya_oshibka": "An unexpected error has occurred"
+  "proizoshla_nepredvidennaya_oshibka": "An unexpected error has occurred",
+  "vvedite_login": "Enter login",
+  "vvedite_parol": "Enter password",
+  "voiti": "To come in"
 }

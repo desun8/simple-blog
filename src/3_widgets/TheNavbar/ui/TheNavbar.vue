@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { LoginModal } from '4_features/AuthByUsername';
 import AppButton from '6_shared/ui/AppButton/AppButton.vue';
 import { AppButtonTheme } from '6_shared/ui/AppButton/types/AppButtonTheme';
-import AppModal from '6_shared/ui/AppModal/AppModal.vue';
 import { ref } from 'vue';
 
 const isAuth = ref(false);
@@ -42,14 +42,8 @@ const handleClick = () => {
       {{ isAuth ? $t('common.logout') : $t('common.login') }}
     </AppButton>
 
-    <AppModal :is-open="isAuthModal" lazy :on-close="handleCloseModal">
-      <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex non enim
-        quae! Nesciunt distinctio deleniti consequuntur voluptatum vero animi
-        eveniet, veritatis velit unde expedita voluptatem tempore numquam
-        dolorum magni tenetur!
-      </p>
-    </AppModal>
+    <LoginModal :is-open="isAuthModal" :on-close="handleCloseModal">
+    </LoginModal>
   </div>
 </template>
 
