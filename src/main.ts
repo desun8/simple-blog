@@ -5,6 +5,7 @@ import { createApp, h } from 'vue';
 import App from './1_app/App.vue';
 import './1_app/styles/index.css';
 import { ErrorBoundary } from '1_app/providers/ErrorBoundary';
+import { pinia } from '6_shared/config/pinia/pinia';
 
 createApp({
   render() {
@@ -13,6 +14,7 @@ createApp({
     });
   },
 })
+  .use(pinia)
   .use(router)
   .use(i18n)
   .use(themeProvider)
