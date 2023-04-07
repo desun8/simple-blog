@@ -1,6 +1,12 @@
+<script lang="ts">
+export default {
+  inheritAttrs: false,
+};
+</script>
+
 <script setup lang="ts">
 import { useTheme } from '1_app/providers/theme';
-import { computed, onBeforeUnmount, onMounted, ref, toRefs, watch } from 'vue';
+import { computed, onBeforeUnmount, ref, toRefs, watch } from 'vue';
 
 interface AppModalProps {
   isOpen: boolean;
@@ -79,6 +85,7 @@ onBeforeUnmount(() => {
 <template>
   <Teleport v-if="shouldMount" to="body" :disabled="disabledTeleport">
     <div
+      v-bind="$attrs"
       :class="[
         cls.AppModal,
         theme,

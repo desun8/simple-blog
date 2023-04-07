@@ -10,7 +10,7 @@ import { InputHTMLAttributes, computed, toRefs, useAttrs } from 'vue';
 interface AppInputProps extends InputHTMLAttributes {
   modelValue: string | number;
   label?: string;
-  type?: 'text' | 'number';
+  type?: 'text' | 'number' | 'password';
   placeholder: string;
   name: string;
 }
