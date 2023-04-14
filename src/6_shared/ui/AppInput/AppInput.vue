@@ -17,8 +17,10 @@ interface AppInputProps extends InputHTMLAttributes {
 
 defineEmits(['update:modelValue']);
 
-const props = withDefaults(defineProps<AppInputProps>(), {});
-const { modelValue, type = 'text', name, placeholder } = toRefs(props);
+const props = withDefaults(defineProps<AppInputProps>(), {
+  type: 'text',
+});
+const { modelValue, type, name, placeholder } = toRefs(props);
 
 const attrs = useAttrs();
 const inputAttrs = computed(() => {

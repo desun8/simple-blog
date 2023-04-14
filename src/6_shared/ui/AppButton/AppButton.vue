@@ -14,12 +14,7 @@ const props = withDefaults(defineProps<Props>(), {
   type: 'button',
 });
 
-const {
-  size = AppButtonSize.M,
-  type = 'button',
-  theme,
-  square,
-} = toRefs(props);
+const { size, type, theme, square } = toRefs(props);
 </script>
 
 <template>
