@@ -1,16 +1,13 @@
 import { USER_LOCALSTORAGE_KEY } from '6_shared/const/localStorage';
 import { defineStore } from 'pinia';
 import { ref } from 'vue';
+import { type UserSchema, type User } from './types';
 
-type User = {
-  id: string;
-  username: string;
-};
-
-export const useUserStore = defineStore('user', () => {
+export const useUserStore = defineStore('user', (): UserSchema => {
   const authData = ref<User>();
 
   function setAuthData(payload: User) {
+    localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(payload));
     authData.value = payload;
   }
 

@@ -3,7 +3,9 @@ import { PageLoader } from '3_widgets/PageLoader';
 import { TheNavbar } from '3_widgets/TheNavbar';
 import { TheSidebar } from '3_widgets/TheSidebar';
 import { useTheme } from './providers/theme';
+import { useUserStore } from '5_entities/User';
 
+useUserStore().initAuthData();
 const { theme } = useTheme();
 </script>
 

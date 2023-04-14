@@ -81,6 +81,7 @@
     "vue-tsc": "^1.2.0"
   },
   "dependencies": {
+    "@vueuse/core": "^9.13.0",
     "pinia": "^2.0.33",
     "un": "^0.0.0",
     "vue": "^3.2.47",

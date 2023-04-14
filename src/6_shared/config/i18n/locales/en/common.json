@@ -12,5 +12,7 @@
   "proizoshla_nepredvidennaya_oshibka": "An unexpected error has occurred",
   "vvedite_login": "Enter login",
   "vvedite_parol": "Enter password",
-  "voiti": "To come in"
+  "voiti": "Enter",
+  "forma_avtorizacii": "Authorization form",
+  "ne_vernyi_login_ili_parol": "Wrong login or password"
 }

@@ -12,5 +12,7 @@
   "obnovit_stranicu": "Обновить страницу",
   "vvedite_login": "Введите логин",
   "vvedite_parol": "Введите пароль",
-  "voiti": "Войти"
+  "voiti": "Войти",
+  "forma_avtorizacii": "Форма авторизации",
+  "ne_vernyi_login_ili_parol": "Не верный логин или пароль"
 }

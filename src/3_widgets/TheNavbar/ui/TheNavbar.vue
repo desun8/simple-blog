@@ -1,34 +1,32 @@
 <script setup lang="ts">
-import { LoginModal } from '4_features/AuthByUsername';
+import { computed, ref } from 'vue';
+import { useUserStore } from '5_entities/User';
 import AppButton from '6_shared/ui/AppButton/AppButton.vue';
 import { AppButtonTheme } from '6_shared/ui/AppButton/types/AppButtonTheme';
-import { ref } from 'vue';
+import { LoginModal } from '4_features/AuthByUsername';
 
-const isAuth = ref(false);
-const isAuthModal = ref(false);
+const userStore = useUserStore();
+const showAuthModal = ref(false);
+const shouldRenderModal = computed(() => !userStore.authData);
 
 const handleOpenModal = () => {
-  console.log('open modal');
-  isAuthModal.value = true;
+  showAuthModal.value = true;
 };
 
 const handleCloseModal = () => {
-  console.log('close modal');
-  isAuthModal.value = false;
+  showAuthModal.value = false;
 };
 
 const logout = () => {
-  console.log('logout');
+  userStore.logout();
 };
 
 const handleClick = () => {
-  if (isAuth.value) {
+  if (userStore.authData) {
     logout();
   } else {
     handleOpenModal();
   }
-
-  // isAuth.value = !isAuth.value;
 };
 </script>
 
@@ -39,11 +37,15 @@ const handleClick = () => {
       :theme="AppButtonTheme.CLEAR"
       @click="handleClick"
     >
-      {{ isAuth ? $t('common.logout') : $t('common.login') }}
+      {{ userStore.authData ? $t('common.logout') : $t('common.login') }}
     </AppButton>
 
-    <LoginModal :is-open="isAuthModal" :on-close="handleCloseModal">
-    </LoginModal>
+    <!-- TODO: Сделать полноценный динамический импорт. Сейчас компонент модалки загружается всегда, если пользователь не авторизован  -->
+    <LoginModal
+      v-if="shouldRenderModal"
+      :is-open="showAuthModal"
+      :on-close="handleCloseModal"
+    />
   </div>
 </template>
 

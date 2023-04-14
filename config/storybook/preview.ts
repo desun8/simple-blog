@@ -6,8 +6,10 @@ import { Theme, themeProvider } from '1_app/providers/theme';
 import { router } from '1_app/providers/router/config/router';
 import { type App } from 'vue';
 import { i18n } from '6_shared/config/i18n/i18n';
+import { pinia } from '6_shared/config/pinia/pinia';
 
 setup((app: App) => {
+  app.use(pinia);
   app.use(router);
   app.use(i18n);
   app.use(themeProvider);
