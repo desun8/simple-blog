@@ -1,15 +1,12 @@
 <script setup lang="ts">
-import { RoutePath } from '6_shared/config/routes/routes';
 import AppButton from '6_shared/ui/AppButton/AppButton.vue';
 import { AppButtonSize } from '6_shared/ui/AppButton/types/AppButtonSize';
 import { AppButtonTheme } from '6_shared/ui/AppButton/types/AppButtonTheme';
-import AppLink from '6_shared/ui/AppLink/AppLink.vue';
-import { AppLinkTheme } from '6_shared/ui/AppLink/types/AppLinkTheme';
 import { computed, ref } from 'vue';
-import IconNavMain from '../../assets/i-nav-main.svg?component';
-import IconNavAbout from '../../assets/i-nav-about.svg?component';
 import { LangSwitcher } from '4_features/LangSwitcher';
 import { ThemeSwitcher } from '4_features/ThemeSwitcher';
+import { navItems } from '../../model/navItems';
+import TheSidebarNavLink from '../TheSidebarNavLink/TheSidebarNavLink.vue';
 
 const collapsed = ref(false);
 const onToggle = () => {
@@ -36,23 +33,14 @@ const labelCollapsedBtn = computed(() => (collapsed.value ? '>' : '<'));
     </AppButton>
 
     <nav :class="cls.nav">
-      <AppLink
-        :class="cls.link"
-        :theme="AppLinkTheme.SECONDARY"
-        :to="RoutePath.main"
-      >
-        <IconNavMain />
-        <span :class="cls.linkLabel">{{ $t('common.glavnaya') }}</span>
-      </AppLink>
-
-      <AppLink
-        :class="cls.link"
-        :theme="AppLinkTheme.SECONDARY"
-        :to="RoutePath.about"
-      >
-        <IconNavAbout />
-        <span :class="cls.linkLabel">{{ $t('common.o_nas') }}</span>
-      </AppLink>
+      <TheSidebarNavLink
+        v-for="link in navItems"
+        :key="link.path"
+        :to="link.path"
+        :text="link.i18nKey"
+        :icon="link.icon"
+        :collapsed="collapsed"
+      />
     </nav>
 
     <div :class="cls.switchers">
@@ -104,25 +92,5 @@ const labelCollapsedBtn = computed(() => (collapsed.value ? '>' : '<'));
   gap: 10px;
 
   padding: 30px;
-}
-
-.link {
-  display: grid;
-  grid-auto-flow: column;
-  align-items: center;
-  justify-content: start;
-  gap: 5px;
-}
-
-.linkLabel {
-  white-space: nowrap;
-
-  transition: all 0.2s;
-}
-
-.collapsed .linkLabel {
-  width: 0;
-
-  opacity: 0;
 }
 </style>
