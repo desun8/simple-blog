@@ -20,7 +20,8 @@
     "test:ui:json": "node scripts/generate-visual-json-report.js",
     "test:ui:html": "reg-cli --from .lostpixel/report.json --report .lostpixel/report.html",
     "storybook": "storybook dev --no-open -p 6006 -c ./config/storybook",
-    "storybook:build": "storybook build -c ./config/storybook"
+    "storybook:build": "storybook build -c ./config/storybook",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -78,7 +79,8 @@
     "vite-svg-loader": "^4.0.0",
     "vite-tsconfig-paths": "^4.0.7",
     "vitest": "^0.29.8",
-    "vue-tsc": "^1.2.0"
+    "vue-tsc": "^1.2.0",
+    "husky": "^8.0.0"
   },
   "dependencies": {
     "@vueuse/core": "^9.13.0",
