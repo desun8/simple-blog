@@ -21,6 +21,7 @@
     "test:ui:html": "reg-cli --from .lostpixel/report.json --report .lostpixel/report.html",
     "storybook": "storybook dev --no-open -p 6006 -c ./config/storybook",
     "storybook:build": "storybook build -c ./config/storybook",
+    "pre-commit": "lint-staged",
     "prepare": "husky install"
   },
   "repository": {
@@ -57,8 +58,10 @@
     "eslint-plugin-storybook": "^0.6.11",
     "eslint-plugin-vue": "^9.9.0",
     "happy-dom": "^8.9.0",
+    "husky": "^8.0.0",
     "i": "^0.3.7",
     "json-server": "^0.17.3",
+    "lint-staged": "^13.2.1",
     "lost-pixel": "^3.2.0",
     "npm": "^9.6.3",
     "postcss-html": "^1.5.0",
@@ -79,8 +82,7 @@
     "vite-svg-loader": "^4.0.0",
     "vite-tsconfig-paths": "^4.0.7",
     "vitest": "^0.29.8",
-    "vue-tsc": "^1.2.0",
-    "husky": "^8.0.0"
+    "vue-tsc": "^1.2.0"
   },
   "dependencies": {
     "@vueuse/core": "^9.13.0",
@@ -89,5 +91,9 @@
     "vue": "^3.2.47",
     "vue-i18n": "^9.2.2",
     "vue-router": "^4.1.6"
+  },
+  "lint-staged": {
+    "*.{ts,vue}": "npm run lint:ts:fix",
+    "*.{css,vue}": "npm run lint:css:fix"
   }
 }
