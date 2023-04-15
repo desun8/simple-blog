@@ -14,5 +14,6 @@
   "vvedite_parol": "Введите пароль",
   "voiti": "Войти",
   "forma_avtorizacii": "Форма авторизации",
-  "ne_vernyi_login_ili_parol": "Не верный логин или пароль"
+  "ne_vernyi_login_ili_parol": "Не верный логин или пароль",
+  "profile": "Профиль"
 }

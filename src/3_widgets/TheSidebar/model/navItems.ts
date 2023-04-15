@@ -3,6 +3,7 @@ import { type FunctionalComponent, type SVGAttributes } from 'vue';
 
 import IconNavMain from '../assets/i-nav-main.svg?component';
 import IconNavAbout from '../assets/i-nav-about.svg?component';
+import IconNavProfile from '../assets/i-nav-profile.svg?component';
 
 type NavItem = {
   path: string;
@@ -20,5 +21,10 @@ export const navItems: NavItem[] = [
     path: RoutePath.about,
     i18nKey: 'o_nas',
     icon: IconNavAbout,
+  },
+  {
+    path: RoutePath.profile,
+    i18nKey: 'profile',
+    icon: IconNavProfile,
   },
 ];

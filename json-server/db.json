@@ -5,5 +5,17 @@
       "username": "admin",
       "password": "admin"
     }
+  ],
+  "profiles": [
+    {
+      "firstname": "Firstname",
+      "lastname": "Lastname",
+      "age": 22,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Moscow",
+      "username": "admin",
+      "avatar": "https://static.wikia.nocookie.net/evangelion/images/b/b9/Evangelion_Iron_Maiden_Portrait_SINJI1J.png"
+    }
   ]
 }

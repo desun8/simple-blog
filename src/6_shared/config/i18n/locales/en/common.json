@@ -14,5 +14,6 @@
   "vvedite_parol": "Enter password",
   "voiti": "Enter",
   "forma_avtorizacii": "Authorization form",
-  "ne_vernyi_login_ili_parol": "Wrong login or password"
+  "ne_vernyi_login_ili_parol": "Wrong login or password",
+  "profile": "Profile"
 }
