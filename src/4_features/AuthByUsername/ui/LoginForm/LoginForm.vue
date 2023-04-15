@@ -5,6 +5,7 @@ import { useLoginStore } from '../../model/useLoginStore';
 import { storeToRefs } from 'pinia';
 import AppText from '6_shared/ui/AppText/AppText.vue';
 import { AppTextTheme } from '6_shared/ui/AppText/types/AppTextTheme';
+import { onUnmounted } from 'vue';
 
 const store = useLoginStore();
 const { username, password, isLoading, errorMsg } = storeToRefs(store);
@@ -12,6 +13,10 @@ const { username, password, isLoading, errorMsg } = storeToRefs(store);
 const handleSubmit = async () => {
   await store.loginByUsername();
 };
+
+onUnmounted(() => {
+  store.$destroy();
+});
 </script>
 
 <template>
