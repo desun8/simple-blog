@@ -15,5 +15,7 @@
   "voiti": "Enter",
   "forma_avtorizacii": "Authorization form",
   "ne_vernyi_login_ili_parol": "Wrong login or password",
-  "profile": "Profile"
+  "profile": "Profile",
+  "ukazhite_stranu": "Select country",
+  "ukazhite_valyutu": "Select currency"
 }

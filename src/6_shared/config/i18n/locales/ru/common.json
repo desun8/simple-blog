@@ -15,5 +15,7 @@
   "voiti": "Войти",
   "forma_avtorizacii": "Форма авторизации",
   "ne_vernyi_login_ili_parol": "Не верный логин или пароль",
-  "profile": "Профиль"
+  "profile": "Профиль",
+  "ukazhite_valyutu": "Укажите валюту",
+  "ukazhite_stranu": "Укажите страну"
 }
