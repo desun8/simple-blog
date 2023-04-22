@@ -1,4 +1,5 @@
-import { type Country, type Currency } from '6_shared/const/common';
+import { type Country } from '5_entities/Country';
+import { type Currency } from '5_entities/Currency';
 import { type Ref } from 'vue';
 
 export type Profile = {
@@ -13,8 +14,12 @@ export type Profile = {
 };
 
 export type ProfileSchema = {
-  data?: Ref<Profile | undefined>;
+  data: Ref<Profile | undefined>;
   isLoading: Ref<boolean>;
-  error?: Ref<string | undefined>;
+  errorMsg: Ref<string>;
   readonly: Ref<boolean>;
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  fetchData: () => Promise<Ref<Profile | null>>;
+  updateData: () => void;
+  cancelChanges: () => void;
 };
