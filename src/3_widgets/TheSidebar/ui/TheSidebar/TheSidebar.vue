@@ -7,13 +7,21 @@ import { LangSwitcher } from '4_features/LangSwitcher';
 import { ThemeSwitcher } from '4_features/ThemeSwitcher';
 import { navItems } from '../../model/navItems';
 import TheSidebarNavLink from '../TheSidebarNavLink/TheSidebarNavLink.vue';
+import { RoutePath } from '6_shared/config/routes/routes';
+import { useUserStore } from '5_entities/User';
 
+const userStore = useUserStore();
 const collapsed = ref(false);
 const onToggle = () => {
   collapsed.value = !collapsed.value;
 };
 
 const labelCollapsedBtn = computed(() => (collapsed.value ? '>' : '<'));
+const filteredNavItems = computed(() =>
+  userStore.authData
+    ? navItems
+    : navItems.filter((item) => item.path !== RoutePath.profile)
+);
 </script>
 
 <template>
@@ -34,7 +42,7 @@ const labelCollapsedBtn = computed(() => (collapsed.value ? '>' : '<'));
 
     <nav :class="cls.nav">
       <TheSidebarNavLink
-        v-for="link in navItems"
+        v-for="link in filteredNavItems"
         :key="link.path"
         :to="link.path"
         :text="link.i18nKey"

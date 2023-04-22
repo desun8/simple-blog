@@ -1,3 +1,4 @@
+import { useUserStore } from '5_entities/User';
 import { type RouteRecordRaw } from 'vue-router';
 
 const MainPage = async () => import('2_pages/MainPage');
@@ -31,6 +32,13 @@ export const routes: RouteRecordRaw[] = [
   {
     path: RoutePath.profile,
     component: ProfilePage,
+    beforeEnter() {
+      if (useUserStore().authData) {
+        return true;
+      }
+
+      return { path: RoutePath.main };
+    },
   },
   {
     path: RoutePath.not_found,
