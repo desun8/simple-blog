@@ -19,6 +19,7 @@ const handleCloseModal = () => {
 
 const logout = () => {
   userStore.logout();
+  handleCloseModal();
 };
 
 const handleAuthClick = () => {
