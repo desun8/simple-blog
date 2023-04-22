@@ -8,16 +8,20 @@ const meta = {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-  args: {},
+  args: {
+    label: 'Label',
+    placeholder: 'Input text',
+    value: 'Some text',
+  },
 } satisfies Meta<typeof AppInput>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
+export const Primary: Story = {};
+
+export const Readonly: Story = {
   args: {
-    label: 'Label',
-    placeholder: 'Input text',
-    value: 'Some text',
+    readonly: true,
   },
 };

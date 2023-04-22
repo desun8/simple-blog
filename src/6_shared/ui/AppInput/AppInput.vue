@@ -79,4 +79,19 @@ const labelFor = computed(() =>
 .input:focus {
   outline: none;
 }
+
+.input:read-only {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.input::-webkit-outer-spin-button,
+.input::-webkit-inner-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+}
+
+.input[type='number'] {
+  appearance: textfield;
+}
 </style>
