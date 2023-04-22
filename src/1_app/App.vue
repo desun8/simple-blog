@@ -18,15 +18,13 @@ const { theme } = useTheme();
       <RouterView v-slot="{ Component }" class="page-wrapper">
         <template v-if="Component">
           <Transition mode="out-in">
-            <KeepAlive>
-              <Suspense timeout="0">
-                <component :is="Component"></component>
+            <Suspense timeout="0">
+              <component :is="Component"></component>
 
-                <template #fallback>
-                  <PageLoader />
-                </template>
-              </Suspense>
-            </KeepAlive>
+              <template #fallback>
+                <PageLoader />
+              </template>
+            </Suspense>
           </Transition>
         </template>
       </RouterView>
