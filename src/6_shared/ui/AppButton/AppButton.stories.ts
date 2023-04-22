@@ -52,6 +52,17 @@ export const OutlineDark: Story = {
   },
 };
 OutlineDark.decorators = [ThemeDecorator(Theme.DARK)];
+export const OutlineRed: Story = {
+  args: {
+    theme: AppButtonTheme.OUTLINE_RED,
+  },
+};
+export const OutlineRedDark: Story = {
+  args: {
+    theme: AppButtonTheme.OUTLINE_RED,
+  },
+};
+OutlineDark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const OutlineSizeXl: Story = {
   args: {

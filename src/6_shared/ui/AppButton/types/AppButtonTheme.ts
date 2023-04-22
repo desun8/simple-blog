@@ -4,6 +4,7 @@ export const enum AppButtonTheme {
   PRIMARY = 'primary',
   SECONDARY = 'secondary',
   OUTLINE = 'outline',
+  OUTLINE_RED = 'outline-red',
   BACKGROUND = 'background',
   BACKGROUND_INVERTED = 'backgroundInverted',
 }

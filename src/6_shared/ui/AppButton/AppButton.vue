@@ -61,11 +61,24 @@ const { size, type, theme, square } = toRefs(props);
   color: var(--inverted-secondary-color);
 }
 
-.outline {
-  border: 1px solid var(--primary-color);
+.outline,
+.outline-red {
+  border-width: 1px;
+  border-style: solid;
 
-  background: none;
+  background-color: transparent;
+}
+
+.outline {
+  border-color: var(--primary-color);
+
   color: var(--primary-color);
+}
+
+.outline-red {
+  border-color: var(--red-light);
+
+  color: var(--red-light);
 }
 
 .background {
