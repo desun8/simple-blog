@@ -21,7 +21,7 @@ const logout = () => {
   userStore.logout();
 };
 
-const handleClick = () => {
+const handleAuthClick = () => {
   if (userStore.authData) {
     logout();
   } else {
@@ -34,8 +34,8 @@ const handleClick = () => {
   <div :class="cls.TheNavbar">
     <AppButton
       :class="cls.links"
-      :theme="AppButtonTheme.CLEAR"
-      @click="handleClick"
+      :theme="AppButtonTheme.CLEAR_INVERTED"
+      @click="handleAuthClick"
     >
       {{ userStore.authData ? $t('common.logout') : $t('common.login') }}
     </AppButton>
