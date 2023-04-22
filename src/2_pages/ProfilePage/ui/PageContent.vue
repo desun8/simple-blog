@@ -1,8 +1,12 @@
 <script setup lang="ts">
-import { useProfileStore } from '5_entities/Profile';
+import { ProfileCard, useProfileStore } from '5_entities/Profile';
+import { storeToRefs } from 'pinia';
 import { onUnmounted } from 'vue';
+import ProfilePageHeader from './ProfilePageHeader.vue';
 
 const store = useProfileStore();
+const { data, isLoading, errorMsg, readonly } = storeToRefs(store);
+await store.fetchData();
 
 onUnmounted(() => {
   store.$destroy();
@@ -11,6 +15,13 @@ onUnmounted(() => {
 
 <template>
   <div>
-    <h1>{{ $t('common.profile') }}</h1>
+    <ProfilePageHeader />
+
+    <ProfileCard
+      v-model:data="data"
+      :is-loading="isLoading"
+      :error="errorMsg"
+      :is-readonly="readonly"
+    />
   </div>
 </template>
