@@ -10,7 +10,7 @@ declare module 'pinia' {
   }
 }
 
-const destroy: PiniaPlugin = ({ pinia, store }) => ({
+export const destroyPlugin: PiniaPlugin = ({ pinia, store }) => ({
   $destroy() {
     store.$dispose();
     // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
@@ -23,6 +23,6 @@ const destroy: PiniaPlugin = ({ pinia, store }) => ({
 });
 
 const pinia = createPinia();
-pinia.use(destroy);
+pinia.use(destroyPlugin);
 
 export { pinia };
