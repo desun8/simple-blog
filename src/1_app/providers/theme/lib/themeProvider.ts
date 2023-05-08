@@ -10,6 +10,7 @@ const LOCAL_STORAGE_THEME_KEY = 'theme';
 export const enum Theme {
   LIGHT = 'app-theme-light',
   DARK = 'app-theme-dark',
+  ORANGE = 'app-theme-orange',
 }
 
 const defaultTheme =

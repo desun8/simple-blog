@@ -15,7 +15,22 @@ export const useTheme = (initialTheme?: Theme): UseThemeResult => {
   });
 
   const toggleTheme = () => {
-    const newTheme = theme.value === Theme.DARK ? Theme.LIGHT : Theme.DARK;
+    let newTheme: Theme;
+
+    switch (theme.value) {
+      case Theme.LIGHT:
+        newTheme = Theme.DARK;
+        break;
+      case Theme.DARK:
+        newTheme = Theme.ORANGE;
+        break;
+      case Theme.ORANGE:
+        newTheme = Theme.LIGHT;
+        break;
+      default:
+        newTheme = Theme.LIGHT;
+    }
+
     setTheme(newTheme);
   };
 
