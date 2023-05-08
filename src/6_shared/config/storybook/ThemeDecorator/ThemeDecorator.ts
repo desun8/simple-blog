@@ -9,5 +9,5 @@ export const ThemeDecorator =
       const { theme, toggleTheme } = useTheme(initialTheme);
       return { theme };
     },
-    template: '<div :class="theme"><story/></div>',
+    template: '<div :class="[\'app\', theme]"><story/></div>',
   });
