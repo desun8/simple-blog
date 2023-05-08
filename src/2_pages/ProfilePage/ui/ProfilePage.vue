@@ -18,5 +18,7 @@ watch(authData, (curr) => {
 </script>
 
 <template>
-  <PageContent />
+  <Suspense>
+    <PageContent />
+  </Suspense>
 </template>

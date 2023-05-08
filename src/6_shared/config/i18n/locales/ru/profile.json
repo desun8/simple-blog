@@ -14,5 +14,11 @@
   "vashe_imya_polzovatelya": "Ваше имя пользователя",
   "vvedite_imya_polzovatelya": "Введите имя пользователя",
   "avatar": "Аватар",
-  "vvedite_ssylku_na_avatar": "Введите ссылку на аватар"
+  "vvedite_ssylku_na_avatar": "Введите ссылку на аватар",
+  "nekorrektnyi_vozrast": "Некорректный возраст",
+  "imya_i_familiya_obyazatelny": "Имя и фамилия обязательны",
+  "dannye_ne_ukazany": "Данные не указаны",
+  "servernaya_oshibka_pri_sokhranenii": "Серверная ошибка при сохранении",
+  "proizoshla_oshibka_pri_zagruzke_profilya": "Произошла ошибка при загрузке профиля",
+  "poprobuite_obnovit_stranicu": "Попробуйте обновить страницу"
 }

@@ -6,7 +6,7 @@ import AppText from '6_shared/ui/AppText/AppText.vue';
 import { storeToRefs } from 'pinia';
 
 const store = useProfileStore();
-const { readonly } = storeToRefs(store);
+const { readonly, errors } = storeToRefs(store);
 
 const handleAllowEdit = () => {
   readonly.value = false;
@@ -15,12 +15,16 @@ const handleAllowEdit = () => {
 const handleCancelEdit = () => {
   store.cancelChanges();
   readonly.value = true;
+  errors.value = undefined;
 };
 
 const handleSaveEdit = async () => {
-  console.log('Save change data');
   await store.updateData();
-  readonly.value = true;
+
+  if (!errors) {
+    readonly.value = true;
+    console.log('Save change data');
+  }
 };
 </script>
 

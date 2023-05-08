@@ -14,5 +14,9 @@
   "vvedite_imya": "Enter your name",
   "vvedite_imya_polzovatelya": "Enter username",
   "vvedite_ssylku_na_avatar": "Enter link to avatar",
-  "vvedite_vozrast": "Enter age"
+  "vvedite_vozrast": "Enter age",
+  "dannye_ne_ukazany": "Data not specified",
+  "imya_i_familiya_obyazatelny": "First and last name are required",
+  "nekorrektnyi_vozrast": "Incorrect age",
+  "servernaya_oshibka_pri_sokhranenii": "Server error on save"
 }

@@ -3,6 +3,8 @@ import TheSidebar from './TheSidebar.vue';
 import { ThemeDecorator } from '6_shared/config/storybook/ThemeDecorator/ThemeDecorator';
 // @ts-ignore
 import { Theme } from '1_app/providers/theme';
+import { StoreDecorator } from '6_shared/config/storybook/StoreDecorator/StoreDecorator';
+import { useUserStore } from '5_entities/User';
 
 const meta = {
   title: '3_widgets/TheSidebar',
@@ -12,6 +14,14 @@ const meta = {
     backgroundColor: { control: 'color' },
   },
   args: {},
+  decorators: [
+    StoreDecorator(() => {
+      const store = useUserStore();
+      store.$patch({
+        authData: undefined,
+      });
+    }),
+  ],
 } satisfies Meta<typeof TheSidebar>;
 
 export default meta;
@@ -24,3 +34,18 @@ export const Dark: Story = {
   args: {},
 };
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const Auth: Story = {
+  args: {},
+};
+Auth.decorators = [
+  StoreDecorator(() => {
+    const store = useUserStore();
+    store.$patch({
+      authData: {
+        id: '1',
+        username: 'user',
+      },
+    });
+  }),
+];

@@ -33,6 +33,7 @@ onUnmounted(() => {
       name="username"
       :label="$t('common.vvedite_login')"
       placeholder=""
+      autofocus
     />
     <AppInput
       v-model="password"

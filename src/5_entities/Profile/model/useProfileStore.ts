@@ -1,14 +1,19 @@
 import { defineStore } from 'pinia';
 import { ref, watch } from 'vue';
-import type { ProfileSchema, Profile } from './types';
+import {
+  type ProfileSchema,
+  type Profile,
+  ValidateProfileError,
+} from './types';
 import { useFetch } from '6_shared/lib/useFetch/useFetch';
+import { validateProfileData } from './validateProfileData/validateProfileData';
 
 export const useProfileStore = defineStore('profile', (): ProfileSchema => {
   // eslint-disable-next-line @typescript-eslint/naming-convention
   const _data = ref<Profile>();
   const data = ref<Profile>();
   const isLoading = ref(false);
-  const errorMsg = ref('');
+  const errors = ref<ValidateProfileError[]>();
   const readonly = ref(true);
 
   watch(_data, (newValue) => {
@@ -17,7 +22,7 @@ export const useProfileStore = defineStore('profile', (): ProfileSchema => {
 
   async function fetchData() {
     isLoading.value = true;
-    errorMsg.value = '';
+    errors.value = undefined;
 
     const {
       data: resData,
@@ -25,10 +30,13 @@ export const useProfileStore = defineStore('profile', (): ProfileSchema => {
       isFetching,
     } = await useFetch<Profile>('/profile').get().json<Profile>();
 
-    errorMsg.value = error.value ? String(error.value) : '';
+    if (error.value) {
+      errors.value = [ValidateProfileError.SERVER_ERROR];
+    }
+
     isLoading.value = isFetching.value;
 
-    if (!error.value && resData.value) {
+    if (errors.value === undefined && resData.value) {
       _data.value = resData.value;
     }
 
@@ -37,19 +45,33 @@ export const useProfileStore = defineStore('profile', (): ProfileSchema => {
 
   async function updateData() {
     isLoading.value = true;
-    errorMsg.value = '';
+    errors.value = undefined;
 
-    const {
-      data: resData,
-      error,
-      isFetching,
-    } = await useFetch<Profile>('/profile').put(data.value).json<Profile>();
+    const validateErrors = validateProfileData(data.value);
 
-    errorMsg.value = error.value ? String(error.value) : '';
-    isLoading.value = isFetching.value;
+    if (validateErrors) {
+      isLoading.value = false;
+      errors.value = validateErrors;
+    } else {
+      const {
+        data: resData,
+        error,
+        isFetching,
+      } = await useFetch<Profile>('/profile').put(data.value).json<Profile>();
 
-    if (!error.value && resData.value) {
-      _data.value = resData.value;
+      if (error.value) {
+        errors.value = [ValidateProfileError.SERVER_ERROR];
+      }
+
+      isLoading.value = isFetching.value;
+
+      if (errors.value === undefined) {
+        if (resData.value) {
+          _data.value = resData.value;
+        } else {
+          errors.value = [ValidateProfileError.NO_DATA];
+        }
+      }
     }
   }
 
@@ -60,7 +82,7 @@ export const useProfileStore = defineStore('profile', (): ProfileSchema => {
   return {
     data,
     isLoading,
-    errorMsg,
+    errors,
     readonly,
     fetchData,
     updateData,
