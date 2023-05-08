@@ -3,6 +3,7 @@ import AppText from './AppText.vue';
 import { ThemeDecorator } from '6_shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '1_app/providers/theme';
 import { AppTextTheme } from './types/AppTextTheme';
+import { AppTextAlign } from './types/AppTextAlign';
 
 const meta = {
   title: '6_shared/AppText',
@@ -45,3 +46,14 @@ export const OnlyTextDark: Story = {
   args: { title: '' },
 };
 OnlyTextDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const AlignCenter: Story = {
+  args: {
+    align: AppTextAlign.CENTER,
+  },
+};
+export const AlignRight: Story = {
+  args: {
+    align: AppTextAlign.RIGHT,
+  },
+};
