@@ -7,7 +7,7 @@ export default {
 <script setup lang="ts">
 import { SelectHTMLAttributes, computed, toRefs, useAttrs } from 'vue';
 
-interface AppSelectProps extends SelectHTMLAttributes {
+interface AppSelectProps extends /* @vue-ignore */ SelectHTMLAttributes {
   modelValue: string | number;
   label?: string;
   placeholder?: string;

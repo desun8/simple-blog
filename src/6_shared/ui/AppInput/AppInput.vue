@@ -7,7 +7,7 @@ export default {
 <script setup lang="ts">
 import { InputHTMLAttributes, computed, toRefs, useAttrs } from 'vue';
 
-interface AppInputProps extends InputHTMLAttributes {
+interface AppInputProps extends /* @vue-ignore */ InputHTMLAttributes {
   modelValue: string | number;
   label?: string;
   type?: 'text' | 'number' | 'password';

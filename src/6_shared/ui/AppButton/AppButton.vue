@@ -3,7 +3,7 @@ import { type ButtonHTMLAttributes, toRefs } from 'vue';
 import { AppButtonSize } from './types/AppButtonSize';
 import { AppButtonTheme } from './types/AppButtonTheme';
 
-interface Props extends ButtonHTMLAttributes {
+interface Props extends /* @vue-ignore */ ButtonHTMLAttributes {
   theme?: AppButtonTheme;
   square?: boolean;
   size?: AppButtonSize;
