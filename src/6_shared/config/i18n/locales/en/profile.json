@@ -18,5 +18,7 @@
   "dannye_ne_ukazany": "Data not specified",
   "imya_i_familiya_obyazatelny": "First and last name are required",
   "nekorrektnyi_vozrast": "Incorrect age",
-  "servernaya_oshibka_pri_sokhranenii": "Server error on save"
+  "servernaya_oshibka_pri_sokhranenii": "Server error on save",
+  "poprobuite_obnovit_stranicu": "Try refreshing the page",
+  "proizoshla_oshibka_pri_zagruzke_profilya": "An error occurred while loading the profile"
 }

@@ -3,11 +3,13 @@ import { createI18n, type I18n, type I18nOptions } from 'vue-i18n';
 import common from './locales/ru/common.json';
 import about from './locales/ru/about.json';
 import profile from './locales/ru/profile.json';
+import article from './locales/ru/article.json';
 
 export const enum Namespaces {
   COMMON = 'common',
   ABOUT = 'about',
   PROFILE = 'profile',
+  ARTICLE = 'article',
 }
 
 export const enum SupportLocales {
@@ -19,7 +21,12 @@ type Options = {
   locale: SupportLocales;
 } & I18nOptions;
 
-const namespaces = [Namespaces.COMMON, Namespaces.ABOUT, Namespaces.PROFILE];
+const namespaces = [
+  Namespaces.COMMON,
+  Namespaces.ABOUT,
+  Namespaces.PROFILE,
+  Namespaces.ARTICLE,
+];
 
 const defaultOptions: Options = {
   legacy: false,
@@ -27,7 +34,7 @@ const defaultOptions: Options = {
   availableLocales: [SupportLocales.RU, SupportLocales.EN],
   fallbackLocale: 'ru',
   messages: {
-    ru: { common, about, profile },
+    ru: { common, about, profile, article },
   },
 };
 
