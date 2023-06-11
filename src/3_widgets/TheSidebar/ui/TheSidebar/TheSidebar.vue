@@ -7,7 +7,6 @@ import { LangSwitcher } from '4_features/LangSwitcher';
 import { ThemeSwitcher } from '4_features/ThemeSwitcher';
 import { navItems } from '../../model/navItems';
 import TheSidebarNavLink from '../TheSidebarNavLink/TheSidebarNavLink.vue';
-import { RoutePath } from '6_shared/config/routes/routes';
 import { useUserStore } from '5_entities/User';
 
 const userStore = useUserStore();
@@ -18,9 +17,7 @@ const onToggle = () => {
 
 const labelCollapsedBtn = computed(() => (collapsed.value ? '>' : '<'));
 const filteredNavItems = computed(() =>
-  userStore.authData
-    ? navItems
-    : navItems.filter((item) => item.path !== RoutePath.profile)
+  userStore.authData ? navItems : navItems.filter((item) => !item.authOnly)
 );
 </script>
 

@@ -1,4 +1,3 @@
-import { authGuard } from '6_shared/lib/authGuard/authGuard';
 import { type RouteRecordRaw } from 'vue-router';
 
 const MainPage = async () => import('2_pages/MainPage');
@@ -38,20 +37,17 @@ export const routes: RouteRecordRaw[] = [
   {
     path: RoutePath.profile,
     component: ProfilePage,
-    meta: { requiresAuth: true },
-    beforeEnter: [authGuard],
+    meta: { authOnly: true },
   },
   {
     path: RoutePath.article,
     component: ArticlesPage,
-    meta: { requiresAuth: true },
-    beforeEnter: [authGuard],
+    meta: { authOnly: true },
   },
   {
     path: RoutePath.article_details,
     component: ArticleDetailsPage,
-    meta: { requiresAuth: true },
-    beforeEnter: [authGuard],
+    meta: { authOnly: true },
   },
   {
     path: RoutePath.not_found,

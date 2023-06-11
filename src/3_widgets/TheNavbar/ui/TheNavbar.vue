@@ -4,8 +4,11 @@ import { useUserStore } from '5_entities/User';
 import AppButton from '6_shared/ui/AppButton/AppButton.vue';
 import { AppButtonTheme } from '6_shared/ui/AppButton/types/AppButtonTheme';
 import { LoginModal } from '4_features/AuthByUsername';
+import { useRoute, useRouter } from 'vue-router';
 
 const userStore = useUserStore();
+const route = useRoute();
+const router = useRouter();
 const showAuthModal = ref(false);
 const shouldRenderModal = computed(() => !userStore.authData);
 
@@ -19,7 +22,10 @@ const handleCloseModal = () => {
 
 const logout = () => {
   userStore.logout();
-  handleCloseModal();
+  handleCloseModal(); // Без этого модалка не открывается после логаута
+  if (route.meta.authOnly) {
+    router.push('/');
+  }
 };
 
 const handleAuthClick = () => {
