@@ -1,15 +1,29 @@
-import type { Meta, StoryObj } from '@storybook/vue3';
-import ArticleDetailsPage from './ArticleDetailsPage.vue';
-import { ThemeDecorator } from '6_shared/config/storybook/ThemeDecorator/ThemeDecorator';
-// @ts-ignore
-import { Theme } from '1_app/providers/theme';
-import {
-  useArticleStore,
-  type Article,
-  ArticleType,
-  ArticleBlockType,
-} from '5_entities/Article';
-import { StoreDecorator } from '6_shared/config/storybook/StoreDecorator/StoreDecorator';
+import { createPinia, setActivePinia } from 'pinia';
+
+import { ref, type Ref } from 'vue';
+import { useFetch } from '6_shared/lib/useFetch/useFetch';
+import { type Article, ArticleBlockType, ArticleType } from './types/article';
+import { useArticleStore } from './useArticleStore';
+
+let doMockUseFetchResponse: {
+  data: Ref<Article | undefined>;
+  error: Ref<string>;
+  isFetching: Ref<boolean>;
+};
+
+vi.mock('6_shared/lib/useFetch/useFetch', () => ({
+  useFetch: vi.fn(() => ({
+    post: vi.fn(() => ({
+      json: vi.fn(() => doMockUseFetchResponse),
+    })),
+    get: vi.fn(() => ({
+      json: vi.fn(() => doMockUseFetchResponse),
+    })),
+    put: vi.fn(() => ({
+      json: vi.fn(() => doMockUseFetchResponse),
+    })),
+  })),
+}));
 
 const ARTICLE: Article = {
   id: '1',
@@ -82,29 +96,65 @@ const ARTICLE: Article = {
   ],
 };
 
-const meta = {
-  title: '2_pages/ArticleDetailsPage',
-  component: ArticleDetailsPage,
-  tags: ['autodocs'],
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
-  args: {},
-  decorators: [
-    StoreDecorator(() => {
-      const store = useArticleStore();
-      store.$patch({ data: ARTICLE, isLoading: false, error: '' });
-    }),
-  ],
-} satisfies Meta<typeof ArticleDetailsPage>;
+describe('useArticleStore', () => {
+  beforeEach(() => {
+    setActivePinia(createPinia());
+  });
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+  afterEach(() => {
+    vi.clearAllMocks();
+  });
 
-export const Light: Story = {
-  args: {},
-};
-export const Dark: Story = {
-  args: {},
-};
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
+  test('get values', () => {
+    const articleStore = useArticleStore();
+    expect({
+      data: articleStore.data,
+      isLoading: articleStore.isLoading,
+      error: articleStore.error,
+    }).toEqual({
+      data: undefined,
+      isLoading: false,
+      errors: undefined,
+    });
+  });
+
+  test('fetch data', async () => {
+    doMockUseFetchResponse = {
+      data: ref(ARTICLE),
+      isFetching: ref(false),
+      error: ref(''),
+    };
+
+    const articleId = '1';
+
+    const articleStore = useArticleStore();
+    await articleStore.fetchData(articleId);
+
+    expect(useFetch).toHaveBeenCalledTimes(1);
+    expect(useFetch).toHaveBeenCalledWith(`/articles/${articleId}`);
+
+    expect(articleStore.data).toEqual(ARTICLE);
+    expect(articleStore.isLoading).toBe(false);
+    expect(articleStore.error).toBe(undefined);
+  });
+
+  test('fetch data with error', async () => {
+    doMockUseFetchResponse = {
+      data: ref(ARTICLE),
+      error: ref('error'),
+      isFetching: ref(false),
+    };
+
+    const articleId = '1';
+
+    const articleStore = useArticleStore();
+    await articleStore.fetchData(articleId);
+
+    expect(useFetch).toHaveBeenCalledTimes(1);
+    expect(useFetch).toHaveBeenCalledWith(`/articles/${articleId}`);
+
+    expect(articleStore.data).toBe(undefined);
+    expect(articleStore.isLoading).toBe(false);
+    expect(articleStore.error).toEqual('error');
+  });
+});

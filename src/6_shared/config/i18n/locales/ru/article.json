@@ -1,3 +1,7 @@
 {
-  "title": "Статьи"
+  "title": "Статьи",
+  "stranica_ne_naidena": "Страница не найдена",
+  "statya_ne_naidena": "Статья не найдена",
+  "proizoshla_oshibka_pri_zagruzke_stati": "Произошла ошибка при загрузке статьи",
+  "kopirovat": "Копировать"
 }

@@ -6,6 +6,8 @@ import { AppButtonTheme } from './types/AppButtonTheme';
 describe('AppButton', () => {
   test('Test render', () => {
     render(AppButton, { slots: { default: () => 'Button text' } });
+    // @ts-ignore
+
     expect(screen.getByText('Button text')).toBeInTheDocument();
   });
 
@@ -14,6 +16,8 @@ describe('AppButton', () => {
       props: { theme: AppButtonTheme.CLEAR },
       slots: { default: () => 'Button text' },
     });
+    // @ts-ignore
+
     expect(screen.getByText('Button text')).toHaveClass('clear');
   });
 });

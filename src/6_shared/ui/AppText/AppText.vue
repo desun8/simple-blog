@@ -2,23 +2,26 @@
 import { toRefs } from 'vue';
 import { AppTextTheme } from './types/AppTextTheme';
 import { AppTextAlign } from './types/AppTextAlign';
+import { AppTextSize } from './types/AppTextSize';
 
 interface AppTextProps {
   title?: string;
   text?: string;
   theme?: AppTextTheme;
   align?: AppTextAlign;
+  size?: AppTextSize;
 }
 
 const props = withDefaults(defineProps<AppTextProps>(), {
   theme: AppTextTheme.PRIMARY,
   align: AppTextAlign.LEFT,
+  size: AppTextSize.M,
 });
 const { title, text, theme } = toRefs(props);
 </script>
 
 <template>
-  <div :class="[cls[theme], cls[align]]">
+  <div :class="[cls[theme], cls[align], cls[size]]">
     <p v-if="title" :class="cls.title">{{ title }}</p>
     <p v-if="text" :class="cls.text">{{ text }}</p>
   </div>
@@ -37,14 +40,10 @@ const { title, text, theme } = toRefs(props);
 
 .title {
   color: var(--title-color);
-
-  font: var(--font-l);
 }
 
 .text {
   color: var(--text-color);
-
-  font: var(--font-m);
 }
 
 .left {
@@ -57,5 +56,21 @@ const { title, text, theme } = toRefs(props);
 
 .center {
   text-align: center;
+}
+
+.size-m .title {
+  font: var(--font-l);
+}
+
+.size-m .text {
+  font: var(--font-m);
+}
+
+.size-l .title {
+  font: var(--font-xl);
+}
+
+.size-l .text {
+  font: var(--font-l);
 }
 </style>

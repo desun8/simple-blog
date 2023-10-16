@@ -1,5 +1,3 @@
-<script setup lang="ts"></script>
-
 <template>
   <span :class="cls.LoaderSpinner"></span>
 </template>

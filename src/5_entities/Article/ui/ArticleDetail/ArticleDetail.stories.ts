@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
-import ArticleDetailsPage from './ArticleDetailsPage.vue';
+import ArticleDetail from './ArticleDetail.vue';
 import { ThemeDecorator } from '6_shared/config/storybook/ThemeDecorator/ThemeDecorator';
 // @ts-ignore
 import { Theme } from '1_app/providers/theme';
-import {
-  useArticleStore,
-  type Article,
-  ArticleType,
-  ArticleBlockType,
-} from '5_entities/Article';
 import { StoreDecorator } from '6_shared/config/storybook/StoreDecorator/StoreDecorator';
+import { useArticleStore } from '../../model/useArticleStore';
+import {
+  type Article,
+  ArticleBlockType,
+  ArticleType,
+} from '../../model/types/article';
 
 const ARTICLE: Article = {
   id: '1',
@@ -83,20 +83,22 @@ const ARTICLE: Article = {
 };
 
 const meta = {
-  title: '2_pages/ArticleDetailsPage',
-  component: ArticleDetailsPage,
+  title: '5_entities/ArticleDetail',
+  component: ArticleDetail,
   tags: ['autodocs'],
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-  args: {},
+  args: {
+    id: '1',
+  },
   decorators: [
     StoreDecorator(() => {
       const store = useArticleStore();
       store.$patch({ data: ARTICLE, isLoading: false, error: '' });
     }),
   ],
-} satisfies Meta<typeof ArticleDetailsPage>;
+} satisfies Meta<typeof ArticleDetail>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -104,7 +106,24 @@ type Story = StoryObj<typeof meta>;
 export const Light: Story = {
   args: {},
 };
+
 export const Dark: Story = {
   args: {},
 };
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const Loading: Story = {};
+Loading.decorators = [
+  StoreDecorator(() => {
+    const store = useArticleStore();
+    store.$patch({ isLoading: true });
+  }),
+];
+
+export const Error: Story = {};
+Error.decorators = [
+  StoreDecorator(() => {
+    const store = useArticleStore();
+    store.$patch({ error: 'error' });
+  }),
+];

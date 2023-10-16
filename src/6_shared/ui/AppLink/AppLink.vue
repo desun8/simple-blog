@@ -23,6 +23,9 @@ const { theme, to } = toRefs(props);
 .AppLink {
   color: var(--primary-color);
 }
+.AppLink:hover {
+  opacity: 0.8;
+}
 
 .primary {
   color: var(--primary-color);

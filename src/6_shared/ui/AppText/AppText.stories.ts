@@ -4,6 +4,7 @@ import { ThemeDecorator } from '6_shared/config/storybook/ThemeDecorator/ThemeDe
 import { Theme } from '1_app/providers/theme';
 import { AppTextTheme } from './types/AppTextTheme';
 import { AppTextAlign } from './types/AppTextAlign';
+import { AppTextSize } from './types/AppTextSize';
 
 const meta = {
   title: '6_shared/AppText',
@@ -55,5 +56,10 @@ export const AlignCenter: Story = {
 export const AlignRight: Story = {
   args: {
     align: AppTextAlign.RIGHT,
+  },
+};
+export const SizeL: Story = {
+  args: {
+    size: AppTextSize.L,
   },
 };

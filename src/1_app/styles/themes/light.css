@@ -6,4 +6,11 @@
   --inverted-primary-color: #038103;
   --inverted-secondary-color: #38d503;
   --theme-switcher-color: #ffc700;
+
+  /* skeleton */
+  --skeleton-color: #fff;
+  --skeleton-shadow: rgba(0 0 0 / 20%);
+
+  /* code */
+  --code-bg: #fbfbfb;
 }

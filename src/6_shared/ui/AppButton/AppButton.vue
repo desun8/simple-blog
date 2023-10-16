@@ -39,6 +39,9 @@ const { size, type, theme, square } = toRefs(props);
 
   cursor: pointer;
 }
+.AppButton:hover {
+  opacity: 0.8;
+}
 
 .clear,
 .clearInverted {

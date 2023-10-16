@@ -7,6 +7,8 @@ import TheSidebar from './TheSidebar.vue';
 describe('TheSidebar', () => {
   test('Test render', () => {
     render(TheSidebar);
+    // @ts-ignore
+
     expect(screen.getByTestId('the-sidebar')).toBeInTheDocument();
   });
 
@@ -14,6 +16,8 @@ describe('TheSidebar', () => {
     render(TheSidebar);
     const toggleBtn = screen.getByTestId('the-sidebar-toggle');
     await fireEvent.click(toggleBtn);
+    // @ts-ignore
+
     expect(screen.getByTestId('the-sidebar')).toHaveClass('collapsed');
   });
 });
