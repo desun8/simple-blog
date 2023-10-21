@@ -42,14 +42,6 @@ const props = defineProps<ArticleDetailProps>();
 
 const store = useArticleStore();
 const { data: article, isLoading, error } = storeToRefs(store);
-console.log(
-  'file: ArticleDetail.vue:46 ~ import.meta.env.STORYBOOK:',
-  import.meta.env.STORYBOOK
-);
-console.log(
-  "file: ArticleDetail.vue:47 ~ import.meta.env.STORYBOOK !== 'true':",
-  import.meta.env.STORYBOOK === 'true'
-);
 
 if (import.meta.env.STORYBOOK !== 'true') {
   store.fetchData(props.id);
