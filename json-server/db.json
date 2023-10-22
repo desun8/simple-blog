@@ -100,7 +100,7 @@
     {
       "id": "3",
       "text": "some comment 3",
-      "articleId": "1",
+      "articleId": "2",
       "userId": "1"
     }
   ],
@@ -109,7 +109,8 @@
       "id": 1,
       "username": "admin",
       "password": "admin",
-      "role": "ADMIN"
+      "role": "ADMIN",
+      "avatar": "https://static.wikia.nocookie.net/evangelion/images/b/b9/Evangelion_Iron_Maiden_Portrait_SINJI1J.png"
     },
     {
       "id": "2",
